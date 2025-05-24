@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JobToDo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+      <div class="container">
+        <h2 class="current-todos-header">Current Todos</h2>
+        <ul id="todoList">
+          <!-- todos will be rendered here -->
+        </ul>
+
+        <div>
+        <form id="uploadForm">
+            <label for="multimodal-input" class="form-label">
+                Paste screenshot or type job details:
+            </label>
+            <div class="multimodal-input-wrapper">
+                <div id="multimodal-input"
+                     contenteditable="true"
+                     role="textbox"
+                     aria-multiline="true">
+                </div>
+                <div class="multimodal-controls-bar">
+                    <input type="file" id="hidden-image-upload" accept="image/*" style="display: none;">
+
+                    <div style="flex-grow: 1;"></div> 
+                    <button type="submit" id="submit-todo-button" class="mm-btn mm-submit-btn">
+                        Create Todo
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+        
+      </div>
+    </div>
+</body>
+</html>
