@@ -25,5 +25,6 @@
     "side_panel": {
         "default_path": "index.html"
     },
-    "permissions": ["sidePanel", "tabs", "contextMenus", "storage"]
+    "permissions": ["sidePanel", "tabs", "contextMenus", "storage", "webRequest"],
+    "host_permissions": ["https://ern-backend-vercel.vercel.app/*"]
 }

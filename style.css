@@ -95,7 +95,9 @@ p.sub-title {
 h2 {
   font-size: 1.5em;
   font-weight: 500;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--h2-color);
   border-bottom: 1px solid var(--h2-border-color);
   padding-bottom: 0.5rem;
@@ -543,8 +545,6 @@ form#uploadForm .form-label {
   border: none; outline: none;
   font-size: 0.95em;
   line-height: 1.6;
-  white-space: pre-wrap;
-  word-wrap: break-word;
   overflow-y: auto;
   color: #e0e0e0;
   background-color: transparent;

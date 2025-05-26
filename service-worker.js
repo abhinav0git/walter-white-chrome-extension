@@ -1,6 +1,5 @@
 chrome.commands.onCommand.addListener((command, tab) => {
   if (command === "_execute_action") {
-
     // for _execute_action, 'tab' should be the active tab.
     if (tab && tab.id) {
       chrome.sidePanel
@@ -9,9 +8,8 @@ chrome.commands.onCommand.addListener((command, tab) => {
           console.log("Side panel opened for tab:", tab.id);
         })
         .catch((error) => console.error("Failed to open side panel:", error));
-    } else {
-
-      
+    } 
+    else {
       // alternative for opening global side panel if tab context is not available
       // For example, open for the current window if tabId is not available
       // This branch might not be strictly necessary if _execute_action always provides a tab.
