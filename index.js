@@ -55,18 +55,18 @@ async function apiRequest(url, method = 'GET', body = null) {
       }
 
       // error message extraction (optionall)
-      // let detailErrorMessage = '';
-      // if (errorData) {
-      //     if (typeof errorData.error === 'string') { 
-      //         detailErrorMessage = errorData.error;
-      //     } else if (errorData.error && typeof errorData.error.message === 'string') { 
-      //         detailErrorMessage = errorData.error.message;
-      //     } else if (typeof errorData.message === 'string') { 
-      //         detailErrorMessage = errorData.message;
-      //     } else if (errorData.messageFromStatus) {
-      //         detailErrorMessage = errorData.messageFromStatus;
-      //     }
-      // }
+      let detailErrorMessage = '';
+      if (errorData) {
+          if (typeof errorData.error === 'string') { 
+              detailErrorMessage = errorData.error;
+          } else if (errorData.error && typeof errorData.error.message === 'string') { 
+              detailErrorMessage = errorData.error.message;
+          } else if (typeof errorData.message === 'string') { 
+              detailErrorMessage = errorData.message;
+          } else if (errorData.messageFromStatus) {
+              detailErrorMessage = errorData.messageFromStatus;
+          }
+      }
 
       const errorMessage = detailErrorMessage || `HTTP error! status: ${response.status}`;
       console.error(`API Error: ${errorMessage}`, errorData);
