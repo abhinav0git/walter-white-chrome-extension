@@ -464,7 +464,7 @@ function handleTodoListClick(event) {
   const target = event.target;
   const li = target.closest('li[data-id]');
   if (!li) return;
-
+  
   const todoId = li.dataset.id;
 
   if (target.matches('.status-btn[data-action="toggle"]')) {
@@ -472,15 +472,7 @@ function handleTodoListClick(event) {
     handleUpdateTodoStatus(todoId, !isCurrentlyCompleted);
   } else if (target.matches('.delete-btn[data-action="delete"]')) {
     handleDeleteTodo(todoId);
-  } else if (target.matches('.collapse-btn') || target.closest('.collapse-btn')) {
-    const actualButton = target.matches('.collapse-btn') ? target : target.closest('.collapse-btn');
-    const detailsList = li.querySelector('.todo-details-list');
-    if (detailsList && actualButton) {
-        const isCollapsed = detailsList.classList.toggle('collapsed');
-        actualButton.setAttribute('aria-expanded', String(!isCollapsed));
-        actualButton.textContent = isCollapsed ? '+' : '-';
-    }
-  }
+  } 
 }
 
 // --- INITIALIZATION ---
