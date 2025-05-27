@@ -61,18 +61,18 @@ async function apiRequest(url, method = 'GET', body = null) {
       }
 
       // error message extraction (optionall)
-      // let detailErrorMessage = '';
-      // if (errorData) {
-      //     if (typeof errorData.error === 'string') { 
-      //         detailErrorMessage = errorData.error;
-      //     } else if (errorData.error && typeof errorData.error.message === 'string') { 
-      //         detailErrorMessage = errorData.error.message;
-      //     } else if (typeof errorData.message === 'string') { 
-      //         detailErrorMessage = errorData.message;
-      //     } else if (errorData.messageFromStatus) {
-      //         detailErrorMessage = errorData.messageFromStatus;
-      //     }
-      // }
+      let detailErrorMessage = '';
+      if (errorData) {
+          if (typeof errorData.error === 'string') { 
+              detailErrorMessage = errorData.error;
+          } else if (errorData.error && typeof errorData.error.message === 'string') { 
+              detailErrorMessage = errorData.error.message;
+          } else if (typeof errorData.message === 'string') { 
+              detailErrorMessage = errorData.message;
+          } else if (errorData.messageFromStatus) {
+              detailErrorMessage = errorData.messageFromStatus;
+          }
+      }
 
       const errorMessage = detailErrorMessage || `HTTP error! status: ${response.status}`;
       console.error(`API Error: ${errorMessage}`, errorData);
@@ -413,8 +413,7 @@ async function handleCreateTodo(event) {
   }
 
   const formData = new FormData();
-  formData.append('image', imageFile, imageFile.name || `screenshot.${imageFile.type.split('/')[1] || 'png'}`);
-
+  formData.append('screenshot', imageFile, imageFile.name || `screenshot.${imageFile.type.split('/')[1] || 'png'}`);
   try {
     const response = await apiRequest(IMAGE_API_URL, 'POST', formData);
     if (response && response.todo && (response.todo.id || response.todo._id) ) {
